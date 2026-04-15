@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using BrewWitch.Views;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 
@@ -53,7 +54,8 @@ public partial class MainPage : ContentPage
         // Reload the list
         LoadBeers();
     }
-    //to do buttons etc
+
+   /* /// to do buttons etc
     private async void OnCounterClicked(object sender, EventArgs e)
     {
         BreweryService service = new BreweryService();
@@ -83,5 +85,11 @@ public partial class MainPage : ContentPage
         //{
         //    Console.WriteLine($"Found Brewery: {brewery.Name}");
         //}
-     }
+    }*/
+
+    private async void OnCounterClicked(object? sender, EventArgs e)
+    {
+        //await Shell.Current.GoToAsync("settings");
+        Navigation.PushModalAsync(new ItemPage());
+    }
 }

@@ -5,7 +5,7 @@
     
     <Grid RowDefinitions="Auto, *" Padding="20" RowSpacing="10">
 
-        <ScrollView Grid.Row="0" MaxHeightRequest="500">
+        <ScrollView Grid.Row="0">
             <VerticalStackLayout Grid.Row="0" Spacing="15">
                 <Label Text=" 🍻 Brew Witch 🍻 "
                        FontSize="32"

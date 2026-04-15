@@ -4,11 +4,40 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BrewWitch"
+    xmlns:views="clr-namespace:BrewWitch.Views"
     Title="BrewWitch">
+    <!--FlyoutBehavior="Flyout" or use tabs-->
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
 
+    <TabBar>
+        <Tab Title="🏠 Home" Icon="dotnet_bot.png">
+            <ShellContent
+            ContentTemplate="{DataTemplate views:HomePage}"
+            Route="HomePage" />
+        </Tab>
+
+        <Tab Title="📦 Item" Icon="dotnet_bot.png">
+            <ShellContent
+            ContentTemplate="{DataTemplate views:ItemPage}"
+            Route="ItemPage" />
+        </Tab>
+
+        <Tab Title="🔍 Search" Icon="dotnet_bot.png">
+            <ShellContent
+            ContentTemplate="{DataTemplate views:SearchPage}"
+            Route="SearchPage" />
+        </Tab>
+
+        <Tab Title="⚙️ Settings" Icon="dotnet_bot.png">
+            <ShellContent
+            ContentTemplate="{DataTemplate views:Settings}"
+            Route="Settings" />
+        </Tab>
+
+        <Tab Title="❓ Main" Icon="dotnet_bot.png">
+            <ShellContent
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+        </Tab>
+    </TabBar>
 </Shell>
