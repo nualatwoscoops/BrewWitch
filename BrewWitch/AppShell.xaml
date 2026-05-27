@@ -12,7 +12,7 @@
     <TabBar>
         <Tab Title="🏠 Home" Icon="dotnet_bot.png">
             <ShellContent
-            ContentTemplate="{DataTemplate views:HomePage}"
+            ContentTemplate="{DataTemplate local:MainPage}"
             Route="HomePage" />
         </Tab>
 
@@ -32,12 +32,6 @@
             <ShellContent
             ContentTemplate="{DataTemplate views:Settings}"
             Route="Settings" />
-        </Tab>
-
-        <Tab Title="❓ Main" Icon="dotnet_bot.png">
-            <ShellContent
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
         </Tab>
     </TabBar>
 </Shell>
