@@ -2,11 +2,46 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrewWitch.Views.ItemPage"
-             Title="ItemPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Details for an Item"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Add Beer">
+
+    <VerticalStackLayout Spacing="15" Padding="20">
+
+        <Label Text="🍺 Add a Beer"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="#D48806"
+               HorizontalOptions="Center" />
+
+        <Entry x:Name="EntryName"
+               Placeholder="Beer name" />
+
+        <Entry x:Name="EntryStyle"
+               Placeholder="Style (e.g. Pale Ale)" />
+
+        <Entry x:Name="EntryAbv"
+               Placeholder="ABV (e.g. 5.2)"
+               Keyboard="Numeric" />
+
+        <Button Text="ADD BEER"
+                Clicked="ButtonAddBeer_Clicked"
+                BackgroundColor="#D48806" />
+
+        <CollectionView x:Name="BeerCollectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="0,8">
+                        <Label Text="{Binding Name}"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#212121" />
+                        <Label Text="{Binding Style}"
+                               TextColor="#616161" />
+                        <Label Text="{Binding Abv, StringFormat='ABV: {0}%'}"
+                               TextColor="#D48806" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </VerticalStackLayout>
 </ContentPage>

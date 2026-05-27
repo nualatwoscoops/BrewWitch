@@ -29,116 +29,49 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
-            <!--Grid Style-->
-            <Style TargetType="Grid" x:Key="GridLayoutStyle">
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup>
-                            <VisualState x:Name="Portrait">
-                                <VisualState.StateTriggers>
-                                    <OrientationStateTrigger Orientation="Portrait"/>
-                                </VisualState.StateTriggers>
-                                <VisualState.Setters>
-                                    <Setter Property="RowDefinitions" Value="*"/>
-                                    <Setter Property="ColumnDefinitions" Value="*,*,*"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Landscape">
-                                <VisualState.StateTriggers>
-                                    <OrientationStateTrigger Orientation="Landscape"/>
-                                </VisualState.StateTriggers>
-                                <VisualState.Setters>
-                                    <Setter Property="RowDefinitions" Value="*,*,*"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
-            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <Grid RowDefinitions="*, *" Padding="20" RowSpacing="10">
 
-        <ScrollView Grid.Row="0">
-            <StackLayout 
-                Grid.Row="0" 
-                Spacing="15"
-                
-                Style="{StaticResource StackLayoutStyle}"
-                >
-                
-                <Image
-                    Source="beers.jpg"
-                    HeightRequest="185"
-                    WidthRequest="100"
-                    Aspect="AspectFit"
-                    SemanticProperties.Description="beers and hops"></Image>
-                <Label Text=" 🍻 Brew Witch 🍻 "
-                       FontSize="32"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       TextColor="#D48806" />
+    <ScrollView>
+        <StackLayout Spacing="15" Padding="20"
+                     Style="{StaticResource StackLayoutStyle}">
 
-                <Label Text="Find Local Breweries" 
-                       FontSize="24" 
-                       FontAttributes="Bold" 
-                       TextColor="DarkSlateBlue" />
+            <Image
+                Source="beers.jpg"
+                HeightRequest="185"
+                WidthRequest="100"
+                Aspect="AspectFit"
+                SemanticProperties.Description="beers and hops"/>
 
-                <Entry x:Name="SearchEntry" 
-                        Placeholder="Enter a city (e.g., Perth)" />
+            <Label Text=" 🍻 Brew Witch 🍻 "
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#D48806" />
 
-                <Button Text="Search" 
-                        Clicked="OnCounterClicked" />
-            
-                <!--List of Breweries -->
-                <CollectionView x:Name="BreweryList">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <VerticalStackLayout Padding="10">
-                                <Label Text="{Binding Name}" FontAttributes="Bold" />
-                                <Label Text="{Binding City}" TextColor="Gray" />
-                            </VerticalStackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+            <Label Text="Find Local Breweries" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="DarkSlateBlue" />
 
-                <Entry x:Name="EntryName"
-                       Placeholder="Beer name" />
+            <Entry x:Name="SearchEntry" 
+                   Placeholder="Enter a city (e.g., Perth)" />
 
-                <Entry x:Name="EntryStyle"
-                       Placeholder="Style (e.g. Pale Ale" />
+            <Button Text="Search" 
+                    Clicked="OnCounterClicked" />
 
-                <Entry x:Name="EntryAbv"
-                       Placeholder="ABV (e.g. 5.2)"
-                       Keyboard="Numeric" />
-
-                <Button Text="ADD BEER"
-                        Clicked="ButtonAddBeer_Clicked"
-                        BackgroundColor="#D48806" />
-        
-            </StackLayout>
-        </ScrollView>
-        
-        <!-- Beer list at the bottom -->
-            <CollectionView Grid.Row="1"
-                            x:Name="BeerCollectionView"
-                            Margin="0,10,0,0">
+            <CollectionView x:Name="BreweryList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout Padding="0,8">
-                            <Label Text="{Binding Name}"
-                                   FontSize="18"
-                                   FontAttributes="Bold"
-                                   TextColor="#212121" />
-                            <Label Text="{Binding Style}"
-                                   TextColor="#616161" />
-                            <Label Text="{Binding Abv, StringFormat='ABV: {0}%'}"
-                                   TextColor="#D48806" />
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                            <Label Text="{Binding City}" TextColor="Gray" />
                         </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-    </Grid>
+        </StackLayout>
+    </ScrollView>
+
 </ContentPage>
