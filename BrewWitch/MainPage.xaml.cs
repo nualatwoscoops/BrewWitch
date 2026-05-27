@@ -1,7 +1,8 @@
 ﻿using BrewWitch.Views;
 using System.Collections.ObjectModel;
+using System.ComponentModel.Design;
 using System.Threading.Tasks;
-
+using BrewWitch;
 
 namespace BrewWitch;
 
@@ -13,11 +14,14 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        string? prevSearchValue = PreferencesService.PreviousSearchValue;
+        SearchEntry.Text = prevSearchValue;
+
         BeerCollectionView.ItemsSource = BeerList;
         LoadBeers();
     }
 
-    // load list of beer recipes 
+    // load list of beers 
     private async void LoadBeers()
     {
         BeerList.Clear();
@@ -55,9 +59,11 @@ public partial class MainPage : ContentPage
         LoadBeers();
     }
 
-   /* /// to do buttons etc
+    /// to do buttons etc
     private async void OnCounterClicked(object sender, EventArgs e)
     {
+        PreferencesService.PreviousSearchValue = SearchEntry.Text;
+        
         BreweryService service = new BreweryService();
 
         string city = string.IsNullOrWhiteSpace(SearchEntry.Text) ? "perth" : SearchEntry.Text;
@@ -85,11 +91,11 @@ public partial class MainPage : ContentPage
         //{
         //    Console.WriteLine($"Found Brewery: {brewery.Name}");
         //}
-    }*/
-
-    private async void OnCounterClicked(object? sender, EventArgs e)
-    {
-        //await Shell.Current.GoToAsync("settings");
-        Navigation.PushModalAsync(new ItemPage());
     }
+
+    //private async void OnCounterClicked(object? sender, EventArgs e)
+    //{
+    //    //await Shell.Current.GoToAsync("settings");
+    //    Navigation.PushModalAsync(new ItemPage());
+    //}
 }

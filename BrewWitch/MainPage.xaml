@@ -7,6 +7,12 @@
 
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Grid.Row="0" Spacing="15">
+                <Image
+                    Source="beers.jpg"
+                    HeightRequest="185"
+                    WidthRequest="100"
+                    Aspect="AspectFit"
+                    SemanticProperties.Description="beers and hops"></Image>
                 <Label Text=" 🍻 Brew Witch 🍻 "
                        FontSize="32"
                        FontAttributes="Bold"
