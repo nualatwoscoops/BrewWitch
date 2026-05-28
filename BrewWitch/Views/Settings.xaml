@@ -3,10 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrewWitch.Views.Settings"
              Title="Settings">
-    <VerticalStackLayout>
-        <Label 
-            Text="This is the settings page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Spacing="15" Padding="20">
+
+        <Label Text="⚙️ Settings"
+               FontSize="40"
+               FontAttributes="Bold"
+               TextColor="#D48806"
+               HorizontalOptions="Center" />
+
+        <Label Text="Dark Mode"
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="DarkSlateBlue" />
+
+        <Switch x:Name="DarkModeSwitch"
+                Toggled="DarkModeSwitch_Toggled" />
+
     </VerticalStackLayout>
 </ContentPage>

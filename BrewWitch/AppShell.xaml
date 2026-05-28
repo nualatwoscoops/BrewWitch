@@ -16,17 +16,19 @@
             Route="HomePage" />
         </Tab>
 
+        <Tab Title="🔍 Search" Icon="dotnet_bot.png">
+            <ShellContent
+            ContentTemplate="{DataTemplate views:SearchPage}"
+            Route="SearchPage" />
+        </Tab>
+
         <Tab Title="📦 Item" Icon="dotnet_bot.png">
             <ShellContent
             ContentTemplate="{DataTemplate views:ItemPage}"
             Route="ItemPage" />
         </Tab>
 
-        <Tab Title="🔍 Search" Icon="dotnet_bot.png">
-            <ShellContent
-            ContentTemplate="{DataTemplate views:SearchPage}"
-            Route="SearchPage" />
-        </Tab>
+        
 
         <Tab Title="⚙️ Settings" Icon="dotnet_bot.png">
             <ShellContent
