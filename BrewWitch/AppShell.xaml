@@ -28,8 +28,6 @@
             Route="ItemPage" />
         </Tab>
 
-        
-
         <Tab Title="⚙️ Settings" Icon="dotnet_bot.png">
             <ShellContent
             ContentTemplate="{DataTemplate views:Settings}"

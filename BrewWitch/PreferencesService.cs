@@ -55,7 +55,13 @@ namespace BrewWitch
             get => Preferences.Get(CountryKey, "Australia");
             set => Preferences.Set(CountryKey, value);
         }
-        
-        
+
+        public static readonly string DarkModeKey= "darkMode";
+
+        public static bool DarkMode
+        {
+            get => Preferences.Get(DarkModeKey, false);
+            set => Preferences.Set(DarkModeKey, value);
+        }
     }
 }

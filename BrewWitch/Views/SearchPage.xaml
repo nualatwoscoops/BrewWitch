@@ -2,26 +2,76 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrewWitch.Views.SearchPage"
-             Title="Search Breweries">
+             Title="Search Beers">
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
 
-    <VerticalStackLayout Spacing="15" Padding="20">
+            <Label Text="🍺 Search My Beers"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="#D48806"
+                   HorizontalOptions="Center" />
 
-        <Entry x:Name="SearchEntry" 
-               Placeholder="Enter a city (e.g., Perth)" />
+            <Label Text="Beer Type"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateBlue" />
+            <Picker x:Name="BeerTypePicker"
+                    Title="Select Beer Type">
+                <Picker.Items>
+                    <x:String>Lager</x:String>
+                    <x:String>Ale</x:String>
+                    <x:String>Pilsner</x:String>
+                    <x:String>IPA</x:String>
+                    <x:String>XPA</x:String>
+                    <x:String>Stout</x:String>
+                </Picker.Items>
+            </Picker>
 
-        <Button Text="Search" 
-                Clicked="OnSearchClicked" />
+            <Label Text="Min ABV"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateBlue" />
+            <Slider x:Name="ABVMinSlider"
+                    Minimum="0"
+                    Maximum="15"
+                    Value="0" 
+                    ValueChanged="ABVMinSlider_ValueChanged"/>
+            <Label x:Name="ABVMinSliderLabel"
+                   Text="Min ABV: 0"/>
 
-        <CollectionView x:Name="BreweryList">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout Padding="10">
-                        <Label Text="{Binding Name}" FontAttributes="Bold" />
-                        <Label Text="{Binding City}" TextColor="Gray" />
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            <Label Text="Max ABV"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateBlue" />
+            <Slider x:Name="ABVMaxSlider"
+                    Minimum="0"
+                    Maximum="15"
+                    Value="15" 
+                    ValueChanged="ABVMaxSlider_ValueChanged"/>
+            <Label x:Name="ABVMaxSliderLabel"
+                    Text="Max ABV: 15"/>
 
-    </VerticalStackLayout>
+            <Button Text="Find Beers"
+                    BackgroundColor="#D48806"
+                    Clicked="SavePreferences_Clicked" />
+
+            <Button Text="Show All Beers"
+                    BackgroundColor="DarkSlateBlue"
+                    Clicked="LoadAllBeers_Clicked" />
+
+            <CollectionView x:Name="BeerResultsList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                            <Label Text="{Binding Style}" TextColor="Gray" />
+                            <Label Text="{Binding Abv, StringFormat='ABV: {0}%'}" TextColor="#D48806" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
