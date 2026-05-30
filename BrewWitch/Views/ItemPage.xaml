@@ -15,9 +15,18 @@
         <Entry x:Name="EntryName"
                Placeholder="Beer name" />
 
-        <Entry x:Name="EntryStyle"
-               Placeholder="Style (e.g. Pale Ale)" />
-
+        <Picker x:Name="BeerTypePicker"
+                    Title="Select Beer Type">
+            <Picker.Items>
+                <x:String>Lager</x:String>
+                <x:String>Ale</x:String>
+                <x:String>Pilsner</x:String>
+                <x:String>IPA</x:String>
+                <x:String>XPA</x:String>
+                <x:String>Stout</x:String>
+            </Picker.Items>
+        </Picker>
+        
         <Entry x:Name="EntryAbv"
                Placeholder="ABV (e.g. 5.2)"
                Keyboard="Numeric" />

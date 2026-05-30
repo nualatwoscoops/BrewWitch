@@ -46,7 +46,7 @@ public partial class SearchPage : ContentPage
         PreferencesService.BeerTypeValue = BeerTypePicker.SelectedItem?.ToString() ?? "";
         PreferencesService.AbvMin = ABVMinSlider.Value;
         PreferencesService.AbvMax = ABVMaxSlider.Value;
-        DisplayAlert("Saved!", "Your preferences have been saved.", "OK");
+        //DisplayAlert("Saved!", "Your preferences have been saved.", "OK");
         LoadFilteredBeers();
     }
 

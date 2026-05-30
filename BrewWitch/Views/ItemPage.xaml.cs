@@ -35,7 +35,7 @@ public partial class ItemPage : ContentPage
         var newBeer = new Beer
         {
             Name = EntryName.Text,
-            Style = EntryStyle.Text,
+            Style = BeerTypePicker.SelectedItem?.ToString(),
             Abv = double.TryParse(EntryAbv.Text, out double abv) ? abv : null
         };
 
@@ -43,7 +43,7 @@ public partial class ItemPage : ContentPage
 
         // Clear the fields
         EntryName.Text = string.Empty;
-        EntryStyle.Text = string.Empty;
+        BeerTypePicker.SelectedIndex = -1;
         EntryAbv.Text = string.Empty;
 
         // Reload the list
