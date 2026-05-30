@@ -3,54 +3,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrewWitch.Views.ItemPage"
              Title="Add Beer">
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
 
-    <VerticalStackLayout Spacing="15" Padding="20">
+            <Label Text="🍺 Add a Beer"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#D48806"
+                   HorizontalOptions="Center" />
 
-        <Label Text="🍺 Add a Beer"
-               FontSize="24"
-               FontAttributes="Bold"
-               TextColor="#D48806"
-               HorizontalOptions="Center" />
+            <Entry x:Name="EntryName"
+                   Placeholder="Beer name" />
 
-        <Entry x:Name="EntryName"
-               Placeholder="Beer name" />
-
-        <Picker x:Name="BeerTypePicker"
-                    Title="Select Beer Type">
-            <Picker.Items>
-                <x:String>Lager</x:String>
-                <x:String>Ale</x:String>
-                <x:String>Pilsner</x:String>
-                <x:String>IPA</x:String>
-                <x:String>XPA</x:String>
-                <x:String>Stout</x:String>
-            </Picker.Items>
-        </Picker>
+            <Picker x:Name="BeerTypePicker"
+                        Title="Select Beer Type">
+                <Picker.Items>
+                    <x:String>Lager</x:String>
+                    <x:String>Ale</x:String>
+                    <x:String>Pilsner</x:String>
+                    <x:String>IPA</x:String>
+                    <x:String>XPA</x:String>
+                    <x:String>Stout</x:String>
+                </Picker.Items>
+            </Picker>
         
-        <Entry x:Name="EntryAbv"
-               Placeholder="ABV (e.g. 5.2)"
-               Keyboard="Numeric" />
+            <Entry x:Name="EntryAbv"
+                   Placeholder="ABV (e.g. 5.2)"
+                   Keyboard="Numeric" />
 
-        <Button Text="ADD BEER"
-                Clicked="ButtonAddBeer_Clicked"
-                BackgroundColor="#D48806" />
+            <Button Text="ADD BEER"
+                    Clicked="ButtonAddBeer_Clicked"
+                    BackgroundColor="#D48806" />
 
-        <CollectionView x:Name="BeerCollectionView">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout Padding="0,8">
-                        <Label Text="{Binding Name}"
-                               FontSize="18"
-                               FontAttributes="Bold"
-                               TextColor="#212121" />
-                        <Label Text="{Binding Style}"
-                               TextColor="#616161" />
-                        <Label Text="{Binding Abv, StringFormat='ABV: {0}%'}"
-                               TextColor="#D48806" />
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            <CollectionView x:Name="BeerCollectionView"
+                            SelectionMode ="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="0,8">
+                            <Label Text="{Binding Name}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#212121" />
+                            <Label Text="{Binding Style}"
+                                   TextColor="#616161" />
+                            <Label Text="{Binding Abv, StringFormat='ABV: {0}%'}"
+                                   TextColor="#D48806" />
+                       </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-    </VerticalStackLayout>
+            <Button Text="DELETE BEER"
+                Clicked="ButtonDeleteBeer_Clicked"
+                BackgroundColor="DarkRed" />
+        
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

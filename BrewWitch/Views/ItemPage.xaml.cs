@@ -49,4 +49,25 @@ public partial class ItemPage : ContentPage
         // Reload the list
         LoadBeers();
     }
+
+    //Runs when delete beer button is tapped
+    private async void ButtonDeleteBeer_Clicked(object sentence, EventArgs e)
+    {
+        if (BeerCollectionView.SelectedItem == null)
+        {
+            await DisplayAlert("Oops", "Please select a beer to delete!", "OK");
+            return;
+        }
+
+        var selectedBeer = BeerCollectionView.SelectedItem as Beer;
+        await App.DatabaseService.Delete(selectedBeer);
+
+        // Clear the fields
+        EntryName.Text = string.Empty;
+        BeerTypePicker.SelectedIndex = -1;
+        EntryAbv.Text = string.Empty;
+
+        // Reload the list
+        LoadBeers();
+    }
 }
