@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BrewWitch.Views.Settings"
-             Title="Settings">
+             x:Class="BrewWitch.Views.Settings">
+    
     <VerticalStackLayout Spacing="15" Padding="20">
 
         <Label Text="⚙️ Settings"
                FontSize="40"
                FontAttributes="Bold"
-               TextColor="#D48806"
+               TextColor="{AppThemeBinding Light=#D48806, Dark=White}"
                HorizontalOptions="Center" />
 
         <Label Text="Dark Mode"
                FontSize="20"
                FontAttributes="Bold"
-               TextColor="DarkSlateBlue" />
+               TextColor="{AppThemeBinding Light=DarkSlateBlue, Dark=LightBlue}" />
 
         <Switch x:Name="DarkModeSwitch"
                 Toggled="DarkModeSwitch_Toggled" />

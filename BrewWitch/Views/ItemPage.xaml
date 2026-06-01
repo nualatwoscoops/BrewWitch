@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BrewWitch.Views.ItemPage"
-             Title="Add Beer">
+             x:Class="BrewWitch.Views.ItemPage">
+    
     <ScrollView>
         <VerticalStackLayout Spacing="15" Padding="20">
 
             <Label Text="🍺 Add a Beer"
                    FontSize="24"
                    FontAttributes="Bold"
-                   TextColor="#D48806"
+                   TextColor="{AppThemeBinding Light=#D48806, Dark=White}"
                    HorizontalOptions="Center" />
 
             <Entry x:Name="EntryName"
@@ -47,7 +47,7 @@
                             <Label Text="{Binding Style}"
                                    TextColor="#616161" />
                             <Label Text="{Binding Abv, StringFormat='ABV: {0}%'}"
-                                   TextColor="#D48806" />
+                                   TextColor="{AppThemeBinding Light=#D48806, Dark=White}" />
                        </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -46,12 +46,12 @@
                    FontSize="32"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
-                   TextColor="#D48806" />
+                   TextColor="{AppThemeBinding Light=#D48806, Dark=White}" />
 
             <Label Text="Find Local Breweries" 
                    FontSize="24" 
                    FontAttributes="Bold" 
-                   TextColor="DarkSlateBlue" />
+                   TextColor="{AppThemeBinding Light=DarkSlateBlue, Dark=LightBlue}" />
 
             <Entry x:Name="SearchEntry" 
                    Placeholder="Enter a city (e.g., Perth)" />

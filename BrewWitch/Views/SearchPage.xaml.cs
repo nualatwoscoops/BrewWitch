@@ -32,12 +32,17 @@ public partial class SearchPage : ContentPage
         var filtered = allBeers.Where(beer => 
             (BeerTypePicker.SelectedItem == null || beer.Style == 
             BeerTypePicker.SelectedItem.ToString()) &&
-            (beer.Abv >= ABVMinSlider.Value && beer.Abv <=ABVMaxSlider.Value)
+            (beer.Abv == null ||(beer.Abv >= ABVMinSlider.Value && beer.Abv <=ABVMaxSlider.Value))
         );
         foreach (var beer in filtered)
         {
             FilteredBeers.Add(beer);
         }
+        if (!FilteredBeers.Any())
+        {
+            await DisplayAlert("No Results", "No beers match your search", "OK");
+        }
+
     }
 
     //saves preferences  and filters list of beers

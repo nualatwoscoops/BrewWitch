@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BrewWitch.Views.SearchPage"
-             Title="Search Beers">
+
+             x:Class="BrewWitch.Views.SearchPage">
     <ScrollView>
         <VerticalStackLayout Spacing="15" Padding="20">
 
             <Label Text="🍺 Search My Beers"
                    FontSize="32"
                    FontAttributes="Bold"
-                   TextColor="#D48806"
+                   TextColor="{AppThemeBinding Light=#D48806, Dark=White}"
                    HorizontalOptions="Center" />
 
             <Label Text="Beer Type"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="DarkSlateBlue" />
+                   TextColor="{AppThemeBinding Light=DarkSlateBlue, Dark=LightBlue}" />
             <Picker x:Name="BeerTypePicker"
                     Title="Select Beer Type">
                 <Picker.Items>
@@ -31,7 +31,7 @@
             <Label Text="Min ABV"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="DarkSlateBlue" />
+                   TextColor="{AppThemeBinding Light=DarkSlateBlue, Dark=LightBlue}" />
             <Slider x:Name="ABVMinSlider"
                     Minimum="0"
                     Maximum="15"
@@ -43,7 +43,7 @@
             <Label Text="Max ABV"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="DarkSlateBlue" />
+                   TextColor="{AppThemeBinding Light=DarkSlateBlue, Dark=LightBlue}" />
             <Slider x:Name="ABVMaxSlider"
                     Minimum="0"
                     Maximum="15"
@@ -66,7 +66,7 @@
                         <VerticalStackLayout Padding="10">
                             <Label Text="{Binding Name}" FontAttributes="Bold" />
                             <Label Text="{Binding Style}" TextColor="Gray" />
-                            <Label Text="{Binding Abv, StringFormat='ABV: {0}%'}" TextColor="#D48806" />
+                            <Label Text="{Binding Abv, StringFormat='ABV: {0}%'}" TextColor="{AppThemeBinding Light=#D48806, Dark=White}" />
                         </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
