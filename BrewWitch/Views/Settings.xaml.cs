@@ -4,6 +4,8 @@ public partial class Settings : ContentPage
     public Settings()
     {
         InitializeComponent();
+        Application.Current.UserAppTheme = PreferencesService.DarkMode ? AppTheme.Dark : AppTheme.Light;
+        DarkModeSwitch.IsToggled = PreferencesService.DarkMode;
     }
 
     private void DarkModeSwitch_Toggled(object sender, ToggledEventArgs e)
